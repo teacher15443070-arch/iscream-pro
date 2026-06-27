@@ -97,21 +97,12 @@ async function fetchSheetRows() {
   return sheetCache;
 }
 
-// 연수대상 셀을 콤마/슬래시/가운뎃점으로 분리(다중 대상 지원).
-function splitTargets(s) {
-  return (s || "")
-    .split(/[,/·]/)
-    .map((x) => x.trim())
-    .filter(Boolean);
-}
-
 // 과정 목록 조회(분야/상태 필터).
 export async function getCourses(filter = {}) {
   let result = [...(await fetchSheetRows())];
   if (filter.category) result = result.filter((c) => c.category === filter.category);
   if (filter.hours) result = result.filter((c) => c.hours === filter.hours);
-  if (filter.target)
-    result = result.filter((c) => splitTargets(c.target).includes(filter.target));
+  if (filter.target) result = result.filter((c) => c.target === filter.target);
   if (filter.status) result = result.filter((c) => c.status === filter.status);
   return result;
 }
@@ -141,8 +132,7 @@ export async function getHoursOptions() {
 export async function getTargets() {
   const rows = await fetchSheetRows();
   const seen = [];
-  for (const r of rows)
-    for (const t of splitTargets(r.target)) if (!seen.includes(t)) seen.push(t);
+  for (const r of rows) if (r.target && !seen.includes(r.target)) seen.push(r.target);
   return seen;
 }
 
