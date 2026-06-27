@@ -271,52 +271,23 @@ img {
 .filters {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: 10px;
   margin-bottom: var(--space-md);
 }
 
-/* 가로 탭(분야/시간/대상) */
-.filter-tabs {
-  display: flex;
-  gap: 4px;
-  border-bottom: 2px solid var(--color-line);
-}
-.filter-tab {
-  position: relative;
-  padding: 9px 18px;
-  border: none;
-  background: none;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-muted);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.15s ease;
-}
-.filter-tab:hover {
-  color: var(--color-primary);
-}
-.filter-tab--active {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
-}
-/* 선택된 필터가 있는 탭에 점 표시 */
-.filter-tab--has::after {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-left: 6px;
-  border-radius: 50%;
-  background: var(--color-point);
-  vertical-align: middle;
-}
-
-.filter-chips {
+/* 필터 한 줄(라벨 + 칩) — 분야/시간/대상 동시 표시 */
+.filter-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 6px;
+}
+.filter-group__label {
+  flex-shrink: 0;
+  width: 44px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 .filter-chip {

@@ -1,6 +1,6 @@
 // 위탁연수 과정 목록 컴포넌트.
-// 필터를 분야/시간/대상 "가로 탭"으로 배치. 탭을 누르면 해당 항목 칩이 아래에 표시되고,
-// 선택은 탭별로 함께(AND) 적용된다. 데이터는 구글 시트(api)에서 온다.
+// 필터를 분야 / 시간 / 대상 세 줄로 동시에 표시하고, 함께(AND) 적용한다.
+// 데이터는 구글 시트(api)에서 온다.
 
 import {
   getCourses,
@@ -21,18 +21,12 @@ export function CourseList() {
   head.className = "section__head";
   head.innerHTML = `
     <h2 class="section__title">아이스크림연수원 연수 과정</h2>
-    <p class="section__desc">구글 시트로 관리되는 실제 과정 데이터입니다. (탭으로 분야·시간·대상을 좁혀 보세요)</p>
+    <p class="section__desc">구글 시트로 관리되는 실제 과정 데이터입니다. (분야·시간·대상으로 좁혀 보세요)</p>
   `;
   section.appendChild(head);
 
-  // 필터: 가로 탭 + 그 아래 칩
   const filters = document.createElement("div");
   filters.className = "filters";
-  const tabsEl = document.createElement("div");
-  tabsEl.className = "filter-tabs";
-  const chipsEl = document.createElement("div");
-  chipsEl.className = "filter-chips";
-  filters.append(tabsEl, chipsEl);
   section.appendChild(filters);
 
   const grid = document.createElement("div");
@@ -43,49 +37,53 @@ export function CourseList() {
   more.className = "course-more";
   section.appendChild(more);
 
-  const facet = { category: null, hours: null, target: null }; // 선택된 필터
-  const opts = { category: [], hours: [], target: [] }; // 각 탭의 선택지
-  let tabs = []; // 표시할 탭 목록
-  let activeTab = "category";
+  const facet = { category: null, hours: null, target: null };
   let shown = PAGE;
   let current = [];
 
-  // 탭바 렌더(선택된 필터가 있으면 점으로 표시).
-  function renderTabs() {
-    tabsEl.innerHTML = "";
-    tabs.forEach((t) => {
-      const btn = document.createElement("button");
-      btn.className =
-        "filter-tab" +
-        (t.key === activeTab ? " filter-tab--active" : "") +
-        (facet[t.key] ? " filter-tab--has" : "");
-      btn.textContent = t.label;
-      btn.addEventListener("click", () => {
-        activeTab = t.key;
-        renderTabs();
-        renderChips();
-      });
-      tabsEl.appendChild(btn);
-    });
-  }
-
-  // 현재 탭의 칩 렌더.
-  function renderChips() {
-    chipsEl.innerHTML = "";
-    const list = [{ key: null, label: "전체" }, ...opts[activeTab]];
-    list.forEach((o) => {
+  // 한 줄(라벨 + 칩들) 생성.
+  function buildGroup(label, key, options) {
+    const wrap = document.createElement("div");
+    wrap.className = "filter-group";
+    const lab = document.createElement("span");
+    lab.className = "filter-group__label";
+    lab.textContent = label;
+    wrap.appendChild(lab);
+    [{ key: null, label: "전체" }, ...options].forEach((o) => {
       const chip = document.createElement("button");
       chip.className =
-        "filter-chip" + (facet[activeTab] === o.key ? " filter-chip--active" : "");
+        "filter-chip" + (facet[key] === o.key ? " filter-chip--active" : "");
       chip.textContent = o.label;
       chip.addEventListener("click", () => {
-        facet[activeTab] = o.key;
-        renderTabs();
-        renderChips();
+        facet[key] = o.key;
+        renderFilters();
         load();
       });
-      chipsEl.appendChild(chip);
+      wrap.appendChild(chip);
     });
+    return wrap;
+  }
+
+  // 필터 세 줄 다시 그리기.
+  async function renderFilters() {
+    const [cats, hours, targets] = await Promise.all([
+      getCategories(),
+      getHoursOptions(),
+      getTargets(),
+    ]);
+    filters.innerHTML = "";
+    filters.appendChild(
+      buildGroup("분야", "category", cats.map((c) => ({ key: c.key, label: c.label })))
+    );
+    filters.appendChild(
+      buildGroup("시간", "hours", hours.map((h) => ({ key: h, label: h })))
+    );
+    // '연수대상' 열이 있을 때만 대상 줄 표시.
+    if (targets.length) {
+      filters.appendChild(
+        buildGroup("대상", "target", targets.map((t) => ({ key: t, label: t })))
+      );
+    }
   }
 
   // 카드 그리드 + 더보기.
@@ -122,27 +120,7 @@ export function CourseList() {
     paint();
   }
 
-  // 탭/선택지 초기화.
-  async function initFilters() {
-    const [cats, hours, targets] = await Promise.all([
-      getCategories(),
-      getHoursOptions(),
-      getTargets(),
-    ]);
-    opts.category = cats.map((c) => ({ key: c.key, label: c.label }));
-    opts.hours = hours.map((h) => ({ key: h, label: h }));
-    opts.target = targets.map((t) => ({ key: t, label: t }));
-    tabs = [
-      { key: "category", label: "분야" },
-      { key: "hours", label: "시간" },
-    ];
-    // '연수대상' 열이 있을 때만 대상 탭 추가.
-    if (targets.length) tabs.push({ key: "target", label: "대상" });
-    renderTabs();
-    renderChips();
-  }
-
-  initFilters();
+  renderFilters();
   load();
   return section;
 }
