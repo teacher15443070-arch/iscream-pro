@@ -60,6 +60,13 @@ function parseCsv(text) {
   return rows;
 }
 
+// "YYYY년 M월 D일" → 정렬용 숫자(YYYYMMDD). 못 읽으면 0.
+function parseKoreanDate(s) {
+  const m = (s || "").match(/(\d{4})\s*년\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일/);
+  if (!m) return 0;
+  return Number(m[1]) * 10000 + Number(m[2]) * 100 + Number(m[3]);
+}
+
 // 시트를 받아 과정 객체 배열로 변환(메모리 캐시).
 let sheetCache = null;
 async function fetchSheetRows() {
@@ -88,6 +95,7 @@ async function fetchSheetRows() {
     target: idx("연수대상") >= 0 ? idx("연수대상") : idx("연수 대상"),
     url: idx("URL"),
     thumb: findCol("과정 섬네일", "과정섬네일", "과정 썸네일", "과정썸네일"),
+    openDate: findCol("과정 개설일", "과정개설일", "개설일"),
   };
   const val = (r, i) => (i >= 0 && r[i] != null ? r[i].trim() : "");
   sheetCache = rows
@@ -104,6 +112,8 @@ async function fetchSheetRows() {
       target: val(r, c.target),
       url: val(r, c.url),
       thumb: val(r, c.thumb),
+      openDate: val(r, c.openDate),
+      openSort: parseKoreanDate(val(r, c.openDate)),
       status: "open",
     }));
   return sheetCache;

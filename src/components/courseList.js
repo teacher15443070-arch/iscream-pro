@@ -18,12 +18,23 @@ export function CourseList() {
   section.id = "courses";
 
   const head = document.createElement("div");
-  head.className = "section__head";
+  head.className = "section__head section__head--row";
   head.innerHTML = `
-    <h2 class="section__title">아이스크림연수원 연수 과정</h2>
-    <p class="section__desc">구글 시트로 관리되는 실제 과정 데이터입니다. (분야·시간·대상으로 좁혀 보세요)</p>
+    <div>
+      <h2 class="section__title">아이스크림연수원 연수 과정</h2>
+      <p class="section__desc">구글 시트로 관리되는 실제 과정 데이터입니다. (분야·시간·대상으로 좁혀 보세요)</p>
+    </div>
+    <button class="btn btn--ghost" id="latestBtn" type="button">🆕 최신과정</button>
   `;
   section.appendChild(head);
+
+  // '최신과정' 토글 버튼(필터와 별개). 켜면 최신(순번 큰)순으로 정렬.
+  const latestBtn = head.querySelector("#latestBtn");
+  latestBtn.addEventListener("click", () => {
+    latest = !latest;
+    latestBtn.className = "btn " + (latest ? "btn--primary" : "btn--ghost");
+    load();
+  });
 
   const filters = document.createElement("div");
   filters.className = "filters";
@@ -38,6 +49,7 @@ export function CourseList() {
   section.appendChild(more);
 
   const facet = { category: null, hours: null, target: null };
+  let latest = false; // '최신과정' 토글: 개설일 최신순 정렬
   let shown = PAGE;
   let current = [];
 
@@ -116,6 +128,12 @@ export function CourseList() {
     if (facet.hours) f.hours = facet.hours;
     if (facet.target) f.target = facet.target;
     current = await getCourses(f);
+    // 최신과정 토글: 개설일(openSort) 내림차순, 동일하면 순번 내림차순.
+    if (latest) {
+      current = [...current].sort(
+        (a, b) => (b.openSort || 0) - (a.openSort || 0) || b.id - a.id
+      );
+    }
     shown = PAGE;
     paint();
   }
