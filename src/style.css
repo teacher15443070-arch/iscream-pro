@@ -1,0 +1,619 @@
+/* =========================================================
+   디자인 토큰: 색상·간격·타이포를 한 곳(:root)에서 관리한다.
+   아이스크림 블루 톤 기반.
+   ========================================================= */
+:root {
+  /* 브랜드 색상 */
+  --color-primary: #0f62cb; /* 아이스크림 블루 */
+  --color-primary-dark: #0a4aa0;
+  --color-accent: #00b7e0; /* 시원한 스카이 */
+  --color-point: #ff6b35; /* 강조(혜택/CTA) */
+
+  /* 중립 색상 */
+  --color-text: #1c2434;
+  --color-muted: #6b7280;
+  --color-line: #e5e9f0;
+  --color-bg: #f5f8fc;
+  --color-surface: #ffffff;
+
+  /* 상태 색상 */
+  --status-open: #16a34a;
+  --status-upcoming: #2563eb;
+  --status-closed: #9ca3af;
+
+  /* 간격 */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 56px;
+
+  /* 모양 */
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(28, 36, 52, 0.06);
+  --shadow-md: 0 10px 30px rgba(28, 36, 52, 0.1);
+
+  /* 타이포 */
+  --font: "Pretendard", system-ui, -apple-system, "Segoe UI", "Malgun Gothic",
+    sans-serif;
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* 공통 레이아웃 컨테이너 */
+.container {
+  width: min(var(--container), 100%);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* 섹션 공통 */
+.section {
+  padding-block: var(--space-xl);
+}
+
+.section__head {
+  margin-bottom: var(--space-lg);
+}
+
+.section__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.section__desc {
+  color: var(--color-muted);
+  margin-top: var(--space-xs);
+}
+
+/* 공통 버튼 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--color-line);
+  color: var(--color-text);
+}
+.btn--ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn--point {
+  background: var(--color-point);
+  color: #fff;
+}
+.btn--point:hover {
+  filter: brightness(0.94);
+}
+
+/* =========================================================
+   헤더 / GNB
+   ========================================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.brand__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  font-size: 1rem;
+}
+
+.brand__pro {
+  color: var(--color-primary);
+}
+
+.gnb {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.gnb__link {
+  font-weight: 600;
+  color: var(--color-text);
+  padding-block: 6px;
+}
+.gnb__link:hover {
+  color: var(--color-primary);
+}
+
+.header__actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+/* =========================================================
+   히어로 배너
+   ========================================================= */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-height: 340px;
+  justify-content: center;
+  padding-block: var(--space-xl);
+}
+
+.hero__eyebrow {
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.hero__title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1.3;
+  white-space: pre-line;
+}
+
+.hero__desc {
+  font-size: 1.05rem;
+  max-width: 620px;
+  opacity: 0.95;
+}
+
+.hero__cta {
+  margin-top: var(--space-sm);
+}
+
+.hero .btn--point {
+  align-self: flex-start;
+}
+
+/* 배너 인디케이터(도트) */
+.hero__dots {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--space-md);
+}
+
+.hero__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.45);
+}
+.hero__dot--active {
+  background: #fff;
+  width: 26px;
+}
+
+/* =========================================================
+   메인 레이아웃 (과정목록 + 사이드 문의폼)
+   ========================================================= */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* 과정 필터 */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.filter-chip {
+  padding: 7px 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  transition: all 0.18s ease;
+}
+.filter-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.filter-chip--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* 과정 카드 그리드 */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.course-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.course-card__agency {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  color: #fff;
+  white-space: nowrap;
+}
+.badge--open {
+  background: var(--status-open);
+}
+.badge--upcoming {
+  background: var(--status-upcoming);
+}
+.badge--closed {
+  background: var(--status-closed);
+}
+
+.course-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.course-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-top: auto;
+}
+
+.course-card__benefit {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-point);
+}
+
+/* 더보기 영역 */
+.course-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.course-more__count {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   빠른 문의 폼 (사이드바)
+   ========================================================= */
+.inquiry {
+  position: sticky;
+  top: 88px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-md);
+}
+
+.inquiry__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.inquiry__sub {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin: 4px 0 var(--space-md);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: var(--space-sm);
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: #fff;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--color-accent);
+  border-color: transparent;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.field--error input,
+.field--error select,
+.field--error textarea {
+  border-color: #e11d48;
+}
+
+.field__error {
+  font-size: 0.75rem;
+  color: #e11d48;
+  min-height: 14px;
+}
+
+.inquiry__submit {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+.inquiry__done {
+  text-align: center;
+  padding: var(--space-md) 0;
+  color: var(--status-open);
+  font-weight: 700;
+}
+
+.inquiry__tel {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--color-line);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+.inquiry__tel b {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   분류 탐색 (담당분야별)
+   ========================================================= */
+.category-nav {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-sm);
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-md) var(--space-xs);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  text-align: center;
+  transition: all 0.18s ease;
+}
+.category-item:hover {
+  border-color: var(--color-primary);
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+.category-item__icon {
+  font-size: 1.8rem;
+}
+.category-item__label {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   도입 절차
+   ========================================================= */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+}
+
+.process-step {
+  position: relative;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.process-step__no {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: var(--space-xs);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  font-weight: 800;
+}
+
+.process-step__title {
+  font-weight: 700;
+}
+.process-step__desc {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* =========================================================
+   푸터
+   ========================================================= */
+.footer {
+  background: #1c2434;
+  color: #c8cedb;
+  padding-block: var(--space-lg);
+  font-size: 0.86rem;
+}
+
+.footer__brand {
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: var(--space-sm);
+}
+
+.footer__info p {
+  margin-bottom: 3px;
+}
+
+.footer__copy {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #8a92a6;
+}
+
+/* =========================================================
+   반응형
+   ========================================================= */
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  .inquiry {
+    position: static;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .gnb {
+    display: none;
+  }
+  .hero__title {
+    font-size: 1.7rem;
+  }
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}

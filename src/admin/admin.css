@@ -1,0 +1,157 @@
+/* 관리자 페이지 전용 스타일. style.css의 토큰/버튼을 재사용한다. */
+
+.admin-header {
+  background: var(--color-text);
+  color: #fff;
+}
+.admin-header__inner {
+  width: min(var(--container), 100%);
+  margin-inline: auto;
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-header h1 {
+  font-size: 1.2rem;
+}
+.admin-header h1 span {
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+/* 탭 */
+.admin-tabs {
+  display: flex;
+  gap: 6px;
+  padding-top: var(--space-md);
+}
+.admin-tab {
+  padding: 10px 20px;
+  border: 1px solid var(--color-line);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background: #eef2f8;
+  font-weight: 700;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+.admin-tab--active {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.admin-content {
+  padding-bottom: var(--space-xl);
+}
+
+/* 패널 */
+.admin-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 0 var(--radius) var(--radius) var(--radius);
+  padding: var(--space-md);
+}
+.admin-panel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+.admin-panel__head h2 {
+  font-size: 1.2rem;
+}
+.admin-count {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* 추가 폼 */
+.admin-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: var(--space-sm);
+  background: var(--color-bg);
+  border-radius: 10px;
+  margin-bottom: var(--space-md);
+}
+.admin-form input,
+.admin-form select {
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 8px 10px;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+}
+.admin-form input[name="title"] {
+  flex: 1;
+  min-width: 180px;
+}
+.admin-form input[name="url"] {
+  flex: 1;
+  min-width: 160px;
+}
+
+/* 테이블 */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.admin-table th,
+.admin-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: middle;
+}
+.admin-table th {
+  background: var(--color-bg);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+.admin-table .cell-msg,
+.admin-table .cell-title {
+  max-width: 320px;
+}
+.admin-table tr.is-done {
+  opacity: 0.55;
+}
+.admin-table tr.edit-row td {
+  background: #fffbeb;
+}
+.admin-table .cell-actions {
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+}
+.admin-table input,
+.admin-table select {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 6px 8px;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  width: 100%;
+}
+
+.admin-reset {
+  margin-top: var(--space-md);
+}
+
+/* 안내 박스(과정 관리 - 시트 연동) */
+.admin-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: #eef5ff;
+  border: 1px solid #cfe0ff;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}

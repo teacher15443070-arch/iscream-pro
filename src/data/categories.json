@@ -1,0 +1,7 @@
+[
+  { "key": "digital", "label": "디지털역량", "icon": "🤖" },
+  { "key": "humanities", "label": "인문소양", "icon": "📖" },
+  { "key": "teaching", "label": "교수학습", "icon": "📚" },
+  { "key": "language", "label": "어학", "icon": "🗣️" },
+  { "key": "classroom", "label": "학급경영", "icon": "🏫" }
+]

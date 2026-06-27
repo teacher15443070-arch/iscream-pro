@@ -1,0 +1,452 @@
+[
+    {
+        "id":  7349,
+        "title":  "깊이 있는 학습 \u0026 학습 주도성 Up!  AI 시대를 이끄는 질문의 힘",
+        "credit":  "2",
+        "category":  "teaching",
+        "categoryName":  "교수학습",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7349"
+    },
+    {
+        "id":  7357,
+        "title":  "부모 인문학 클래스: 엄빠의 질문",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7357"
+    },
+    {
+        "id":  3058,
+        "title":  "아이들이 먼저 집중하는 시간! 교사도 따라하는 교실 밀착 마술",
+        "credit":  "X",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3058"
+    },
+    {
+        "id":  7334,
+        "title":  "현장에서 바로 쓰는 교직실무 가이드 A to Z",
+        "credit":  "4",
+        "category":  "classroom",
+        "categoryName":  "학급경영",
+        "price":  140000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7334"
+    },
+    {
+        "id":  7346,
+        "title":  "걱정없이 떠나는 여행 일본어 무작정 따라하기",
+        "credit":  "1",
+        "category":  "language",
+        "categoryName":  "어학",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7346"
+    },
+    {
+        "id":  7347,
+        "title":  "현실 월급쟁이의 재테크 1년 로드맵",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7347"
+    },
+    {
+        "id":  3057,
+        "title":  "딱 10분! AI로 뚝딱 만드는 작사작곡",
+        "credit":  "X",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3057"
+    },
+    {
+        "id":  7325,
+        "title":  "우영쌤의 쉽게 준비하고 바로 적용하는 과학 실험",
+        "credit":  "1",
+        "category":  "teaching",
+        "categoryName":  "교수학습",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7325"
+    },
+    {
+        "id":  7354,
+        "title":  "최소한의 세금공부",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7354"
+    },
+    {
+        "id":  7352,
+        "title":  "1등급은 다르다! 수상자들의 디지털교육 연구대회 필승 전략",
+        "credit":  "1",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7352"
+    },
+    {
+        "id":  7350,
+        "title":  "선생님을 바꾸는 크로스핏! 살은 빼고 건강은 더하기",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7350"
+    },
+    {
+        "id":  7339,
+        "title":  "하루 20분, 몸이 달라지는 필라테스의 정석",
+        "credit":  "2",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7339"
+    },
+    {
+        "id":  3051,
+        "title":  "AI 에이전트 핵심만 쏙쏙 배우기 - 입문에서 실전까지, 업무 비서를 넘어선 초지능 에이전트",
+        "credit":  "X",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3051"
+    },
+    {
+        "id":  3053,
+        "title":  "수업에 매직 한 스푼! 교실에서 함께하는 카드 마술",
+        "credit":  "X",
+        "category":  "teaching",
+        "categoryName":  "교수학습",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3053"
+    },
+    {
+        "id":  3050,
+        "title":  "AI 이미지 생성의 대세, 나노바나나로 초격차 디자인 마스터하기",
+        "credit":  "X",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3050"
+    },
+    {
+        "id":  3052,
+        "title":  "AI로 들여다보는 역사의 라이벌 - 조선편",
+        "credit":  "X",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3052"
+    },
+    {
+        "id":  7337,
+        "title":  "학교자율시간, 수업으로 바로 쓰다",
+        "credit":  "1",
+        "category":  "classroom",
+        "categoryName":  "학급경영",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7337"
+    },
+    {
+        "id":  3056,
+        "title":  "Google 실무 마스터 - Gemini, NotebookLM, Antigravity",
+        "credit":  "X",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3056"
+    },
+    {
+        "id":  7336,
+        "title":  "블록코딩으로 배우는 AI, AICE Future 완벽대비",
+        "credit":  "1",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7336"
+    },
+    {
+        "id":  7348,
+        "title":  "김창옥의 나의 힐링 아지트",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7348"
+    },
+    {
+        "id":  1248,
+        "title":  "학교 업무 자동화를 위한 구글시트 첫걸음",
+        "credit":  "1",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=1248"
+    },
+    {
+        "id":  7335,
+        "title":  "AI 통합 플랫폼, 구글 AI 스튜디오 완전정복 - 문서, 이미지, 영상 제작부터 바이브코딩까지 한 번에!",
+        "credit":  "1",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7335"
+    },
+    {
+        "id":  7328,
+        "title":  "공부천재 서경석의 한국사능력검정시험 심화",
+        "credit":  "4",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  140000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7328"
+    },
+    {
+        "id":  7338,
+        "title":  "꼭 알아야 할 최소한의 건강 지식",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7338"
+    },
+    {
+        "id":  7329,
+        "title":  "공부천재 서경석의 한국사능력검정시험 (심화)-상",
+        "credit":  "2",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7329"
+    },
+    {
+        "id":  7330,
+        "title":  "공부천재 서경석의 한국사능력검정시험 (심화)-하",
+        "credit":  "2",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7330"
+    },
+    {
+        "id":  3055,
+        "title":  "교사의 시간을 돌려주는 AI: issamGPT 활용법",
+        "credit":  "X",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3055"
+    },
+    {
+        "id":  7320,
+        "title":  "교원 업무 혁신! ChatGPT로 끝내는 엑셀 자동화",
+        "credit":  "1",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7320"
+    },
+    {
+        "id":  7342,
+        "title":  "영어회화 핵심패턴 233 - 핵심패턴편",
+        "credit":  "2",
+        "category":  "language",
+        "categoryName":  "어학",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7342"
+    },
+    {
+        "id":  7343,
+        "title":  "영어회화 핵심패턴 233 - 기본패턴편",
+        "credit":  "2",
+        "category":  "language",
+        "categoryName":  "어학",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7343"
+    },
+    {
+        "id":  7344,
+        "title":  "놀이로 시작하는 사회정서교육",
+        "credit":  "1",
+        "category":  "teaching",
+        "categoryName":  "교수학습",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7344"
+    },
+    {
+        "id":  3049,
+        "title":  "우리반 AI 수업비서 알공 활용 노하우",
+        "credit":  "X",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  30000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3049"
+    },
+    {
+        "id":  3054,
+        "title":  "RUN for U, 달리기 입문 클래스(러닝의 시작)",
+        "credit":  "X",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  35000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3054"
+    },
+    {
+        "id":  7326,
+        "title":  "큰별쌤 최태성의 한국사신문",
+        "credit":  "2",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7326"
+    },
+    {
+        "id":  7321,
+        "title":  "미니학습지 유럽여행회화 미니패스-스페인어, 이탈리아어, 프랑스어, 독일어",
+        "credit":  "1",
+        "category":  "language",
+        "categoryName":  "어학",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7321"
+    },
+    {
+        "id":  1246,
+        "title":  "살찌지 않는 최적의 식사전략, 박용우의 진짜 다이어트",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=1246"
+    },
+    {
+        "id":  7340,
+        "title":  "유성호 법의학자 생존 교양 지식, 시체는 거짓말 하지 않는다",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7340"
+    },
+    {
+        "id":  7331,
+        "title":  "교사별 과정중심평가에 색을 입히다",
+        "credit":  "1",
+        "category":  "teaching",
+        "categoryName":  "교수학습",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7331"
+    },
+    {
+        "id":  7318,
+        "title":  "역사 스토리텔러 두선생의 딱 보면 보이는 세계사",
+        "credit":  "1",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7318"
+    },
+    {
+        "id":  7333,
+        "title":  "Google \u0026 Gemini로 수업을 바꾸는 교사들의 시크릿",
+        "credit":  "1",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7333"
+    },
+    {
+        "id":  7327,
+        "title":  "리얼 시뮬레이션 여행영어",
+        "credit":  "2",
+        "category":  "language",
+        "categoryName":  "어학",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7327"
+    },
+    {
+        "id":  7332,
+        "title":  "생활밀착형 에피소드 30개로 보는 법률상식",
+        "credit":  "2",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  85000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=7332"
+    },
+    {
+        "id":  5077,
+        "title":  "핵심 포인트로 영어 수업 레벨업하기",
+        "credit":  "X",
+        "category":  "teaching",
+        "categoryName":  "교수학습",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=5077"
+    },
+    {
+        "id":  1247,
+        "title":  "생성형 AI 활용, 유아 교사를 위한 디지털 업무 경감",
+        "credit":  "1",
+        "category":  "digital",
+        "categoryName":  "디지털역량",
+        "price":  50000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=1247"
+    },
+    {
+        "id":  3047,
+        "title":  "제로에서 시작하는 샌드아트",
+        "credit":  "X",
+        "category":  "humanities",
+        "categoryName":  "인문소양",
+        "price":  25000,
+        "status":  "open",
+        "url":  "https://teacher.i-scream.co.kr/course/crs/creditView.do?crsCode=3047"
+    }
+]
