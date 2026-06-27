@@ -27,12 +27,22 @@ export function CourseCard(course) {
     ? `<a href="${esc(course.url)}" target="_blank" rel="noopener">${esc(course.title)}</a>`
     : esc(course.title);
 
+  // 썸네일은 있을 때만(과정명 아래). 링크가 있으면 이미지도 새 창 링크로.
+  let thumbHtml = "";
+  if (course.thumb) {
+    const img = `<img src="${esc(course.thumb)}" alt="${esc(course.title)} 썸네일" loading="lazy" />`;
+    thumbHtml = course.url
+      ? `<a class="course-card__thumb" href="${esc(course.url)}" target="_blank" rel="noopener">${img}</a>`
+      : `<div class="course-card__thumb">${img}</div>`;
+  }
+
   card.innerHTML = `
     <div class="course-card__top">
       <span class="course-card__agency">${esc(course.categoryName)}</span>
       <span class="badge badge--${status.tone}">${status.text}</span>
     </div>
     <h3 class="course-card__title">${titleHtml}</h3>
+    ${thumbHtml}
     <div class="course-card__meta">
       <span>📘 ${esc(credit)}</span>
       ${teacher}

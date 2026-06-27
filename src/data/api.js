@@ -69,6 +69,14 @@ async function fetchSheetRows() {
   const rows = parseCsv(await res.text());
   const header = rows[0].map((h) => h.trim());
   const idx = (name) => header.indexOf(name);
+  // 여러 이름 후보 중 먼저 발견되는 열 인덱스(띄어쓰기/표기 변형 대응).
+  const findCol = (...names) => {
+    for (const n of names) {
+      const i = idx(n);
+      if (i >= 0) return i;
+    }
+    return -1;
+  };
   const c = {
     num: idx("순번"),
     hours: idx("시간/차시"),
@@ -79,6 +87,7 @@ async function fetchSheetRows() {
     // 연수대상 열은 선택사항(시트에 추가하면 자동 인식). 띄어쓰기 변형도 허용.
     target: idx("연수대상") >= 0 ? idx("연수대상") : idx("연수 대상"),
     url: idx("URL"),
+    thumb: findCol("과정 섬네일", "과정섬네일", "과정 썸네일", "과정썸네일"),
   };
   const val = (r, i) => (i >= 0 && r[i] != null ? r[i].trim() : "");
   sheetCache = rows
@@ -94,6 +103,7 @@ async function fetchSheetRows() {
       hours: val(r, c.hours),
       target: val(r, c.target),
       url: val(r, c.url),
+      thumb: val(r, c.thumb),
       status: "open",
     }));
   return sheetCache;
