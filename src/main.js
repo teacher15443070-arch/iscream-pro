@@ -15,13 +15,19 @@ const app = document.getElementById("app");
 app.appendChild(Header());
 app.appendChild(HeroBanner());
 
-// 메인 영역: 좌측 과정목록 + 우측 빠른 문의 폼 (2단 그리드)
+// 메인 영역: 과정 목록(전체 너비) → 빠른 문의 폼(별도 섹션)
 const main = document.createElement("main");
-const mainInner = document.createElement("div");
-mainInner.className = "container main-grid";
-mainInner.appendChild(CourseList());
-mainInner.appendChild(QuickInquiryForm());
-main.appendChild(mainInner);
+
+const coursesWrap = document.createElement("div");
+coursesWrap.className = "container";
+coursesWrap.appendChild(CourseList());
+main.appendChild(coursesWrap);
+
+const inquiryWrap = document.createElement("div");
+inquiryWrap.className = "container inquiry-section";
+inquiryWrap.appendChild(QuickInquiryForm());
+main.appendChild(inquiryWrap);
+
 app.appendChild(main);
 
 // 분류 탐색 + 도입 절차 + 푸터
