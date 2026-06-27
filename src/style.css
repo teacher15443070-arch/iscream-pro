@@ -368,6 +368,10 @@ img {
   font-weight: 700;
   line-height: 1.4;
 }
+.course-card__title a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
 
 .course-card__meta {
   display: flex;

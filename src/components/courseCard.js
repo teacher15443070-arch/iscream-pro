@@ -22,12 +22,17 @@ export function CourseCard(course) {
   const teacher = course.teacher ? `<span>👤 ${esc(course.teacher)}</span>` : "";
   const hours = course.hours ? `<span>⏱ ${esc(course.hours)}</span>` : "";
 
+  // URL이 있으면 과정명을 새 창 링크로, 없으면 일반 텍스트로.
+  const titleHtml = course.url
+    ? `<a href="${esc(course.url)}" target="_blank" rel="noopener">${esc(course.title)}</a>`
+    : esc(course.title);
+
   card.innerHTML = `
     <div class="course-card__top">
       <span class="course-card__agency">${esc(course.categoryName)}</span>
       <span class="badge badge--${status.tone}">${status.text}</span>
     </div>
-    <h3 class="course-card__title">${esc(course.title)}</h3>
+    <h3 class="course-card__title">${titleHtml}</h3>
     <div class="course-card__meta">
       <span>📘 ${esc(credit)}</span>
       ${teacher}

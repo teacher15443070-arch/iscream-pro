@@ -78,6 +78,7 @@ async function fetchSheetRows() {
     teacher: idx("강사명"),
     // 연수대상 열은 선택사항(시트에 추가하면 자동 인식). 띄어쓰기 변형도 허용.
     target: idx("연수대상") >= 0 ? idx("연수대상") : idx("연수 대상"),
+    url: idx("URL"),
   };
   const val = (r, i) => (i >= 0 && r[i] != null ? r[i].trim() : "");
   sheetCache = rows
@@ -92,6 +93,7 @@ async function fetchSheetRows() {
       teacher: val(r, c.teacher),
       hours: val(r, c.hours),
       target: val(r, c.target),
+      url: val(r, c.url),
       status: "open",
     }));
   return sheetCache;
