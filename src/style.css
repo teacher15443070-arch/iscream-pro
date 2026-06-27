@@ -270,9 +270,24 @@ img {
 /* 과정 필터 */
 .filters {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: var(--space-md);
+}
+
+/* 필터 그룹(라벨 + 칩 줄) */
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.filter-group__label {
+  flex-shrink: 0;
+  width: 44px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-muted);
 }
 
 .filter-chip {

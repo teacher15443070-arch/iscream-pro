@@ -76,6 +76,8 @@ async function fetchSheetRows() {
     cat: idx("카테고리"),
     title: idx("과정명"),
     teacher: idx("강사명"),
+    // 연수대상 열은 선택사항(시트에 추가하면 자동 인식). 띄어쓰기 변형도 허용.
+    target: idx("연수대상") >= 0 ? idx("연수대상") : idx("연수 대상"),
   };
   const val = (r, i) => (i >= 0 && r[i] != null ? r[i].trim() : "");
   sheetCache = rows
@@ -89,15 +91,27 @@ async function fetchSheetRows() {
       categoryName: val(r, c.cat),
       teacher: val(r, c.teacher),
       hours: val(r, c.hours),
+      target: val(r, c.target),
       status: "open",
     }));
   return sheetCache;
+}
+
+// 연수대상 셀을 콤마/슬래시/가운뎃점으로 분리(다중 대상 지원).
+function splitTargets(s) {
+  return (s || "")
+    .split(/[,/·]/)
+    .map((x) => x.trim())
+    .filter(Boolean);
 }
 
 // 과정 목록 조회(분야/상태 필터).
 export async function getCourses(filter = {}) {
   let result = [...(await fetchSheetRows())];
   if (filter.category) result = result.filter((c) => c.category === filter.category);
+  if (filter.hours) result = result.filter((c) => c.hours === filter.hours);
+  if (filter.target)
+    result = result.filter((c) => splitTargets(c.target).includes(filter.target));
   if (filter.status) result = result.filter((c) => c.status === filter.status);
   return result;
 }
@@ -108,6 +122,28 @@ export async function getCategories() {
   const seen = [];
   for (const r of rows) if (r.category && !seen.includes(r.category)) seen.push(r.category);
   return seen.map((c) => ({ key: c, label: c, icon: CATEGORY_ICONS[c] || "📌" }));
+}
+
+// 시간(시간/차시) 옵션: 고유값 + 보기 좋은 순서로 정렬.
+const HOURS_ORDER = ["15시간 이하", "15시간", "30시간", "60시간"];
+export async function getHoursOptions() {
+  const rows = await fetchSheetRows();
+  const seen = [];
+  for (const r of rows) if (r.hours && !seen.includes(r.hours)) seen.push(r.hours);
+  return seen.sort((a, b) => {
+    const ia = HOURS_ORDER.indexOf(a);
+    const ib = HOURS_ORDER.indexOf(b);
+    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+  });
+}
+
+// 연수대상 옵션: 시트에 '연수대상' 열이 있으면 고유값 목록(없으면 빈 배열).
+export async function getTargets() {
+  const rows = await fetchSheetRows();
+  const seen = [];
+  for (const r of rows)
+    for (const t of splitTargets(r.target)) if (!seen.includes(t)) seen.push(t);
+  return seen;
 }
 
 // === 정적 JSON ===
