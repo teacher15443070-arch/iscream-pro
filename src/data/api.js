@@ -67,6 +67,13 @@ function parseKoreanDate(s) {
   return Number(m[1]) * 10000 + Number(m[2]) * 100 + Number(m[3]);
 }
 
+// 오늘 기준 N개월 전 날짜를 YYYYMMDD 숫자로(최근 과정 판별 기준).
+function recentCutoff(months = 6) {
+  const d = new Date();
+  d.setMonth(d.getMonth() - months);
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+}
+
 // 시트를 받아 과정 객체 배열로 변환(메모리 캐시).
 let sheetCache = null;
 async function fetchSheetRows() {
@@ -98,24 +105,29 @@ async function fetchSheetRows() {
     openDate: findCol("과정 개설일", "과정개설일", "개설일"),
   };
   const val = (r, i) => (i >= 0 && r[i] != null ? r[i].trim() : "");
+  const cut = recentCutoff(6); // 6개월 이내면 '최근(NEW)'
   sheetCache = rows
     .slice(1)
     .filter((r) => val(r, c.title))
-    .map((r, i) => ({
-      id: Number(val(r, c.num)) || i + 1,
-      title: val(r, c.title),
-      credit: val(r, c.credit),
-      category: val(r, c.cat),
-      categoryName: val(r, c.cat),
-      teacher: val(r, c.teacher),
-      hours: val(r, c.hours),
-      target: val(r, c.target),
-      url: val(r, c.url),
-      thumb: val(r, c.thumb),
-      openDate: val(r, c.openDate),
-      openSort: parseKoreanDate(val(r, c.openDate)),
-      status: "open",
-    }));
+    .map((r, i) => {
+      const openSort = parseKoreanDate(val(r, c.openDate));
+      return {
+        id: Number(val(r, c.num)) || i + 1,
+        title: val(r, c.title),
+        credit: val(r, c.credit),
+        category: val(r, c.cat),
+        categoryName: val(r, c.cat),
+        teacher: val(r, c.teacher),
+        hours: val(r, c.hours),
+        target: val(r, c.target),
+        url: val(r, c.url),
+        thumb: val(r, c.thumb),
+        openDate: val(r, c.openDate),
+        openSort,
+        isNew: openSort > 0 && openSort >= cut, // 개설 6개월 이내
+        status: "open",
+      };
+    });
   return sheetCache;
 }
 

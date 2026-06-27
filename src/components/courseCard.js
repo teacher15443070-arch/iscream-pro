@@ -27,13 +27,20 @@ export function CourseCard(course) {
     ? `<a href="${esc(course.url)}" target="_blank" rel="noopener">${esc(course.title)}</a>`
     : esc(course.title);
 
+  // 개설 6개월 이내면 NEW 뱃지.
+  const newBadge = course.isNew ? `<span class="course-card__new">NEW</span>` : "";
+
   // 썸네일은 있을 때만(과정명 아래). 링크가 있으면 이미지도 새 창 링크로.
   let thumbHtml = "";
   if (course.thumb) {
     const img = `<img src="${esc(course.thumb)}" alt="${esc(course.title)} 썸네일" loading="lazy" />`;
+    const inner = img + newBadge; // NEW 뱃지를 썸네일 위에 겹쳐 표시
     thumbHtml = course.url
-      ? `<a class="course-card__thumb" href="${esc(course.url)}" target="_blank" rel="noopener">${img}</a>`
-      : `<div class="course-card__thumb">${img}</div>`;
+      ? `<a class="course-card__thumb" href="${esc(course.url)}" target="_blank" rel="noopener">${inner}</a>`
+      : `<div class="course-card__thumb">${inner}</div>`;
+  } else if (course.isNew) {
+    // 썸네일이 없으면 NEW만이라도 표시.
+    thumbHtml = `<div class="course-card__thumb course-card__thumb--empty">${newBadge}</div>`;
   }
 
   card.innerHTML = `
